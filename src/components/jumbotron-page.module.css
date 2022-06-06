@@ -1,0 +1,28 @@
+.jumbotron {
+    width: 100%;
+    height: 300px;
+    display: grid;
+    margin-bottom: 50px;
+  }
+  .background {
+    grid-area: 1/1;
+    width: 100%;
+  }
+  .content {
+    grid-area: 1/1;
+    position: relative;
+    place-items: center;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+  }
+  
+  .content h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  .content p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+  

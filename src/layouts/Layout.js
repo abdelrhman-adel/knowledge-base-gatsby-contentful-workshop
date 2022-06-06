@@ -6,6 +6,7 @@ export default function Layout({ children }) {
     <>
       <Header />
       {children}
+      <footer>copyrights Rangle 2022, all rights reserved.</footer>
     </>
   )
 }

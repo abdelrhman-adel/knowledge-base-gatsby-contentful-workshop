@@ -1,18 +1,29 @@
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import * as classes from "./jumbotron.module.css"
 export default function Jumbotron() {
+  const {
+    site: {
+      siteMetadata: { title, description },
+    },
+  } = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `)
   return (
     <section className={classes.jumbotron}>
-      <img src="/jumbotron-main.png" className={classes.background} />
+      <StaticImage src="../images/jumbotron-main.png" className={classes.background} />
       <div className={classes.content}>
         <div className={classes.textContainer}>
-          <h2>Looking for Help?</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque vehicula fermentum odio in tristique. Morbi lacus nunc,
-            ullamcorper eu lacus.
-          </p>
+          <h2>{title}</h2>
+          <p>{description}</p>
           <Link to="/categories">explore categories</Link>
         </div>
       </div>
