@@ -1,5 +1,10 @@
 import React from "react"
-
+import Jumbotron from "../components/Jumbotron"
+import Layout from "../layouts/Layout"
 export default function Home() {
-  return <div>Hello world!</div>
+  return (
+    <Layout>
+      <Jumbotron />
+    </Layout>
+  )
 }

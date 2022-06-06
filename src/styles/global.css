@@ -1,0 +1,65 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  text-decoration: none;
+  color: #1d2746;
+}
+html {
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.sectionHeader{
+  text-align: center;
+  margin: 5rem 0;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+.title{
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.description{
+  color: #6b707f;
+  font-size: 1.2rem;
+}
+.articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+.articleLink {
+  display: flex;
+  color: #6b707f;
+  border-radius: 6px;
+  box-shadow: 0 50px 120px 0 rgb(4 73 89 / 8%);
+  padding: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.articleLink:hover div {
+  color: #10b3d6;
+}
+.articleIcon {
+  margin-right: 0.5rem;
+  width: 1.5rem;
+  opacity: 0.7;
+}
+
+footer{
+  padding: 4rem 0 3rem;
+  text-align: center;
+}

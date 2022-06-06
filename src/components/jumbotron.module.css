@@ -1,0 +1,38 @@
+.jumbotron {
+    width: 100%;
+    height: 550px;
+    display: grid;
+  }
+  .background {
+    grid-area: 1/1;
+    width: 100%;
+  }
+  .content {
+    grid-area: 1/1;
+    position: relative;
+    place-items: center;
+    color: white;
+    text-align: center;
+    padding-top: 130px;
+  }
+  .textContainer {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .content h2 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+  .content p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+  .content a {
+    background: #10b3d6;
+    padding: 1.2rem 1.5rem;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+  }
+  
