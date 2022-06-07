@@ -7,18 +7,20 @@ import Layout from "../layouts/Layout"
 export default function CategoryTemplate({ data }) {
   return (
     <Layout>
-      <JumbotronPage title={data.category.frontmatter.title} />
+      <JumbotronPage title={data.category.title} />
       <section>
         <div className="container">
           <div className="sectionHeader">
             <p
               className="description"
-              dangerouslySetInnerHTML={{ __html: data.category.html }}
+              dangerouslySetInnerHTML={{
+                __html: data.category.content.childMarkdownRemark.html,
+              }}
               style={{ textAlign: "left" }}
             />
           </div>
           <div className="articles">
-            {data.articles.nodes.map(({ id, frontmatter: { title, slug } }) => (
+            {data.articles.nodes.map(({ id, title, slug }) => (
               <Link key={id} className="articleLink" to={`/articles/${slug}`}>
                 <div>
                   <StaticImage
@@ -39,26 +41,21 @@ export default function CategoryTemplate({ data }) {
 
 export const query = graphql`
   query CategoryQuery($slug: String) {
-    category: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        icon {
-          childImageSharp {
-            gatsbyImageData
-          }
+    category: contentfulCategory(slug: { eq: $slug }) {
+      title
+      content {
+        childMarkdownRemark {
+          html
         }
       }
-      html
     }
-    articles: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: $slug } } }
+    articles: allContentfulArticle(
+      filter: { category: { slug: { eq: $slug } } }
     ) {
       nodes {
         id
-        frontmatter {
-          title
-          slug
-        }
+        title
+        slug
       }
     }
   }

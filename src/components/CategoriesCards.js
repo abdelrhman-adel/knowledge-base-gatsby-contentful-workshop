@@ -7,21 +7,17 @@ export default function CategoriesCards() {
 
   const { categories: {nodes} } = useStaticQuery(graphql`
     query CategoriesQuery{
-      categories: allFile(
-        filter: { sourceInstanceName: { eq: "categories" } }
-      ) {
+      categories: allContentfulCategory {
         nodes {
-          id
-          childMarkdownRemark {
-            excerpt(format: PLAIN, pruneLength: 150, truncate: true)
-            frontmatter {
-              slug
-              title
-              icon {
-                childImageSharp {
-                  gatsbyImageData(width: 64, layout: CONSTRAINED)
-                }
-              }
+          id,
+          title
+          slug
+          icon {
+            gatsbyImageData(width: 64, layout: CONSTRAINED)
+          }
+          content {
+            childMarkdownRemark {
+              excerpt(format: PLAIN, pruneLength: 150, truncate: true)
             }
           }
         }
@@ -31,8 +27,8 @@ export default function CategoriesCards() {
 
   return (
     <div className="categories">
-      {nodes.map(({ id, childMarkdownRemark }) => (
-        <Category key={id} category={childMarkdownRemark} />
+      {nodes.map((node) => (
+        <Category key={node.id} category={node} />
       ))}
     </div>
   )

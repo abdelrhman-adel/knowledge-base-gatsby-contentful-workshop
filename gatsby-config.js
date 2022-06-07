@@ -16,27 +16,13 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "categories",
-        path: `${__dirname}/src/categories`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "articles",
-        path: `${__dirname}/src/articles`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: `${__dirname}/src/images`,
-      },
-    },
     "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: `cdayw0pi4gwc`,
+        accessToken: `0GaRNBkAQKOfEiHsYzgvzN1l-UraoyJFaaTv_wpisq4`,
+      },
+    },
   ],
 }
